@@ -87,14 +87,53 @@ k6 run --out json=evidences/resultados.json performance/k6/load-test.js
 | Total requests       | 2184        | —         |
 | Throughput           | 18.02 req/s | —         |
 
+## JMeter
+
+### Escenarios incluidos
+El plan `performance/jmeter/jsonplaceholder-test-plan.jmx` contiene dos thread groups:
+
+| Escenario                    | VUs | Ramp-up | Iteraciones | Endpoints                                      |
+|------------------------------|-----|---------|-------------|------------------------------------------------|
+| Consulta de Posts            | 10  | 10 s    | 5           | GET /posts, GET /posts/1, GET /posts/1/comments |
+| Flujo Simulado de Compra     | 5   | 5 s     | 3           | GET /users → GET /posts → POST /posts → GET /comments?postId=1 |
+
+### Comando de ejecución (non-GUI)
+```bash
+jmeter -n \
+  -t performance/jmeter/jsonplaceholder-test-plan.jmx \
+  -l evidences/jmeter-results.jtl \
+  -e -o evidences/jmeter-report
+```
+
+### Resultado — JMeter ✅ APROBADO
+
+| Métrica              | Valor     |
+|----------------------|-----------|
+| Total requests       | 210       |
+| Errores              | 0.00%     |
+| Avg latencia         | 116.4 ms  |
+| p(95) latencia       | 288 ms    |
+| Max latencia         | 486 ms    |
+| Throughput           | 8.2 req/s |
+
 ## Documentación
 - Plan de pruebas: [`docs/test-plan.md`](docs/test-plan.md)
 - Reporte de bugs: [`docs/bug-reports.md`](docs/bug-reports.md)
 - Análisis con IA: [`docs/ai-analysis.md`](docs/ai-analysis.md)
 
 ## Evidencias
-Los resultados se exportan a `evidences/` en formato JSON.
+
+| Archivo                          | Descripción                        |
+|----------------------------------|------------------------------------|
+| `evidences/resultados.json`      | Output crudo de k6 en JSON         |
+| `evidences/jmeter-results.jtl`   | Resultados JMeter en formato CSV   |
+| `evidences/jmeter-report/`       | Reporte HTML generado por JMeter   |
 
 ```bash
+# k6
 k6 run --out json=evidences/resultados.json performance/k6/load-test.js
+
+# JMeter
+jmeter -n -t performance/jmeter/jsonplaceholder-test-plan.jmx \
+  -l evidences/jmeter-results.jtl -e -o evidences/jmeter-report
 ```
