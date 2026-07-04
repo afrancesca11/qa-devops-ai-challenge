@@ -1,0 +1,155 @@
+name: CI — QA Pipeline
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  # ─────────────────────────────────────────
+  # JOB 1: Pruebas de carga con k6
+  # ─────────────────────────────────────────
+  k6-load-test:
+    name: "k6 — Load Test"
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout del repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # 2. Instalación de dependencias
+      - name: Instalar k6
+        run: |
+          sudo gpg --no-default-keyring \
+            --keyring /usr/share/keyrings/k6-archive-keyring.gpg \
+            --keyserver hkp://keyserver.ubuntu.com:80 \
+            --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" \
+            | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update && sudo apt-get install -y k6
+          k6 version
+
+      # 3. Ejecución de pruebas
+      - name: Ejecutar Load Test
+        run: |
+          mkdir -p evidences
+          k6 run \
+            --out json=evidences/resultados.json \
+            --summary-export=evidences/k6-summary.json \
+            performance/k6/load-test.js
+
+      # 4. Generación de reporte
+      - name: Generar reporte de resultados
+        if: always()
+        run: |
+          echo "## k6 Load Test — Resultados" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Métrica | Valor |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|-------|" >> $GITHUB_STEP_SUMMARY
+          python3 - <<'PYEOF'
+          import json, os, sys
+
+          step_summary = os.environ.get("GITHUB_STEP_SUMMARY", "/dev/stdout")
+          try:
+              with open("evidences/k6-summary.json") as f:
+                  data = json.load(f)
+              m = data.get("metrics", {})
+
+              def val(metric, stat):
+                  v = m.get(metric, {}).get("values", {}).get(stat)
+                  return v
+
+              rows = [
+                  ("http_req_duration avg",   f"{val('http_req_duration','avg'):.2f} ms"),
+                  ("http_req_duration p(95)",  f"{val('http_req_duration','p(95)'):.2f} ms"),
+                  ("http_req_duration max",    f"{val('http_req_duration','max'):.2f} ms"),
+                  ("Total requests",           str(val('http_reqs','count'))),
+                  ("Tasa de errores",          f"{val('http_req_failed','rate')*100:.2f}%"),
+                  ("Checks aprobados",         f"{val('checks','rate')*100:.2f}%"),
+              ]
+
+              with open(step_summary, "a") as out:
+                  for label, value in rows:
+                      out.write(f"| {label} | {value} |\n")
+                  out.write("\n")
+              print("Reporte k6 generado")
+          except Exception as e:
+              print(f"Advertencia: no se pudo parsear el summary — {e}", file=sys.stderr)
+          PYEOF
+
+      # 5. Publicación de artefactos
+      - name: Publicar artefactos k6
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: k6-results
+          path: |
+            evidences/resultados.json
+            evidences/k6-summary.json
+
+  # ─────────────────────────────────────────
+  # JOB 2: Pruebas de IA (simulación)
+  # ─────────────────────────────────────────
+  ai-tests:
+    name: "IA — Matriz de pruebas"
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout del repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # 2. Instalación de dependencias
+      - name: Verificar Python (sin dependencias externas)
+        run: |
+          python3 --version
+          echo "Dependencias: stdlib únicamente (json, os, datetime)"
+
+      # 3. Ejecución de pruebas
+      - name: Ejecutar matriz de pruebas IA
+        run: |
+          mkdir -p evidences
+          python3 tests/ai/run_ai_tests.py
+
+      # 4. Generación de reporte
+      - name: Generar reporte de resultados
+        if: always()
+        run: |
+          echo "## AI QA Tests — Resultados" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Métrica | Valor |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|-------|" >> $GITHUB_STEP_SUMMARY
+          python3 - <<'PYEOF'
+          import json, os, sys
+
+          step_summary = os.environ.get("GITHUB_STEP_SUMMARY", "/dev/stdout")
+          try:
+              with open("evidences/ai-test-results.json") as f:
+                  data = json.load(f)
+
+              r = data.get("resumen", {})
+              with open(step_summary, "a") as out:
+                  out.write(f"| Total casos | {r.get('total')} |\n")
+                  out.write(f"| PASS | {r.get('pass')} |\n")
+                  out.write(f"| FAIL | {r.get('fail')} |\n")
+                  out.write(f"| Tasa de aprobación | {r.get('tasa_aprobacion')} |\n")
+                  out.write(f"| Veredicto | {r.get('veredicto')} |\n")
+                  out.write("\n### Detalle por caso\n\n")
+                  out.write("| ID | Categoría | Score | Estado |\n")
+                  out.write("|----|-----------|-------|--------|\n")
+                  for tc in data.get("test_cases", []):
+                      ev = tc.get("evaluacion", {})
+                      out.write(f"| {tc['id']} | {tc['categoria']} | {ev.get('score')} | {ev.get('status')} |\n")
+              print("Reporte IA generado")
+          except Exception as e:
+              print(f"Advertencia: no se pudo parsear resultados IA — {e}", file=sys.stderr)
+          PYEOF
+
+      # 5. Publicación de artefactos
+      - name: Publicar artefactos IA
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ai-test-results
+          path: evidences/ai-test-results.json
