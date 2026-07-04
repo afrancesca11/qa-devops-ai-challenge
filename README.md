@@ -222,6 +222,55 @@ Se dispara en: `push` a `main`, `pull_request` a `main`, y ejecución manual.
 
 ---
 
+## Análisis de logs de ejecución
+
+Los logs reales fueron analizados con Python desde `evidences/resultados.json` (k6) y `evidences/jmeter-results.jtl` (JMeter).
+
+### Hallazgos del log k6
+
+| Métrica del log              | Valor extraído |
+|------------------------------|----------------|
+| `http_req_duration` samples  | 2184           |
+| `http_req_duration` avg      | 114.59 ms      |
+| `http_req_duration` p99      | 165.59 ms      |
+| `http_req_blocked` avg       | 1.769 ms       |
+| `http_req_tls_handshaking` max | 198.28 ms    |
+| `http_req_waiting` avg       | 108.41 ms      |
+| `http_req_receiving` avg     | 6.01 ms        |
+| Check fallido                | `GET respuesta < 400ms` (1 vez, request de 424 ms) |
+| Conexiones TCP nuevas        | 20 de 2184 (0.9%) |
+
+El tiempo de espera del servidor (`http_req_waiting`, 108 ms avg) representa el 94% del tiempo total de respuesta, lo que indica que el cuello de botella es la API y no la red del cliente.
+
+---
+
+## Resumen de resultados de performance
+
+| Herramienta | Escenario             | Requests | Errores | Avg     | p(95)     | Resultado    |
+|-------------|----------------------|----------|---------|---------|-----------|--------------|
+| k6          | Load (10→20 VUs)     | 2184     | 0.00%   | 114 ms  | 127 ms    | ✅ APROBADO  |
+| JMeter      | Consulta de Posts     | 150      | 0.00%   | 120 ms  | ~200 ms   | ✅ APROBADO  |
+| JMeter      | Flujo Simulado Compra | 60       | 0.00%   | 109 ms  | ~167 ms   | ✅ APROBADO  |
+| IA          | Matriz 5 casos        | 5 casos  | 0/5     | —       | —         | ✅ APROBADO  |
+
+---
+
+## Tabla de hallazgos
+
+| # | Severidad | Herramienta | Hallazgo | Acción |
+|---|-----------|-------------|----------|--------|
+| 1 | 🟡 Baja | k6 | Request puntual de 424 ms superó check interno de 400 ms | Monitorear en stress-test |
+| 2 | 🟡 Baja | JMeter | `GET /posts` avg 146 ms — endpoint más lento por payload de 100 items | Considerar paginación en API real |
+| 3 | 🟡 Baja | JMeter | `GET /users` max 314 ms en primer request por DNS lookup | Warm-up thread group |
+| 4 | 🟡 Medio | IA / TC-04 | Datos de tarjeta llegaron al contexto del LLM sin sanitización previa | Implementar filtro de PII en middleware |
+| 5 | 🟡 Medio | IA / TC-01,05 | Respuestas referencian "canal de atención" sin especificar canal concreto | Enriquecer system prompt con contactos reales |
+| 6 | 🟢 Info | k6 | 20 conexiones TLS nuevas (1 por VU) con overhead de hasta 198 ms | Esperado; usar keep-alive reduce impacto |
+| 7 | 🟢 Info | IA / TC-04 | LLM dice "puedo revisar en nuestro sistema" sin acceso real a backend | Ajustar wording del system prompt |
+
+Ver detalle completo en [`docs/bug-reports.md`](docs/bug-reports.md).
+
+---
+
 ## Documentación
 
 | Archivo                  | Contenido                                      |

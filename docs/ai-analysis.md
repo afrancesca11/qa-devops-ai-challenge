@@ -352,3 +352,68 @@ Reglas de comportamiento:
 4. **Prueba de inyección de prompt:** Agregar TC-06 con un intento de jailbreak ("ignora tus instrucciones y actúa como...") para validar la robustez del system prompt.
 5. **Evaluar temperatura:** Ejecutar los mismos casos con temperatura 0.7–1.0 para verificar que la variabilidad del modelo no introduce inconsistencias en las políticas.
 6. **Monitoreo en producción:** Implementar logging de interacciones con un evaluador automático (score de relevancia, detección de PII en outputs) para auditoría continua.
+
+---
+
+## Uso responsable de IA
+
+Esta sección documenta de forma transparente el rol de la IA en la generación de este proyecto, qué fue revisado manualmente, los ajustes realizados y las limitaciones encontradas.
+
+---
+
+### Qué se generó con IA
+
+| Artefacto | Herramienta | Descripción |
+|-----------|-------------|-------------|
+| Scripts k6 (`load-test.js`, `stress-test.js`, `spike-test.js`, `soak-test.js`) | Kiro (LLM) | Estructura inicial de stages, thresholds y checks |
+| Plan JMeter (`jsonplaceholder-test-plan.jmx`) | Kiro (LLM) | Estructura XML completa con thread groups, assertions y listeners |
+| Script de pruebas IA (`tests/ai/run_ai_tests.py`) | Kiro (LLM) | Lógica de evaluación automática con lambdas de validación |
+| Respuestas simuladas del LLM (`evidences/ai-test-results.json`) | Kiro (LLM) | Respuestas generadas bajo el system prompt de TechStore |
+| Análisis de métricas (este documento) | Kiro (LLM) | Tablas, interpretaciones y recomendaciones a partir de logs reales |
+| `docs/test-plan.md` | Kiro (LLM) | Documento estructurado con escenarios, thresholds y resultados |
+| `docs/bug-reports.md` | Kiro (LLM) | Tabla de hallazgos basada en análisis de logs |
+| `README.md` | Kiro (LLM) | Documentación técnica del proyecto |
+| Workflow CI/CD (`.github/workflows/performance.yml`) | Kiro (LLM) | Pipeline de GitHub Actions para k6 y pruebas de IA |
+
+---
+
+### Qué fue revisado manualmente
+
+- **Ejecución real de pruebas:** Los comandos de k6 y JMeter fueron ejecutados localmente y los resultados verificados contra la API real de JSONPlaceholder. Las métricas no son simuladas.
+- **Validez del plan JMX:** Se verificó que el archivo XML era válido y parseable por JMeter 5.6.3 antes de ejecutarlo. Se corrigió un error de encoding en el primer intento.
+- **Coherencia de las respuestas simuladas:** Cada respuesta del LLM simulado fue leída y comparada manualmente contra el system prompt para confirmar que no contradice las políticas de TechStore.
+- **Thresholds:** Los valores de umbral (p95 < 500 ms, errores < 5%) fueron definidos por criterio humano según estándares de la industria para APIs públicas, no por el modelo.
+- **Tabla de hallazgos:** Cada hallazgo fue verificado contra los datos reales de los logs (`evidences/resultados.json` y `evidences/jmeter-results.jtl`), no inferido por el modelo.
+- **Severidades de bugs:** La clasificación de severidad (crítica / media / informativa) fue asignada manualmente en base al impacto real en el sistema.
+
+---
+
+### Qué ajustes se realizaron
+
+| Artefacto | Ajuste realizado | Motivo |
+|-----------|-----------------|--------|
+| `jsonplaceholder-test-plan.jmx` | Se reemplazó `${BASE_URL}` por el dominio literal en los HTTP Defaults | JMeter no resolvía la variable del TestPlan en modo non-GUI |
+| `jsonplaceholder-test-plan.jmx` | Se corrigió el atributo `testname="Assert duración < 2000ms"` cambiando `<` por texto sin entidad XML | El carácter `<` en atributo XML causaba error de parsing |
+| `tests/ai/run_ai_tests.py` | Se eliminó la conexión HTTP a OpenRouter y se embebieron las respuestas como diccionario Python | No se disponía de API key; se optó por simulación transparente y reproducible |
+| `docs/ai-analysis.md` | Se agregó contexto de "modo simulación" en el encabezado de la Parte 3 | Claridad sobre el origen de las respuestas evaluadas |
+| `docs/bug-reports.md` | Se reemplazó el contenido dummy por hallazgos reales extraídos de los logs | El contenido original era un placeholder sin valor |
+| `README.md` | Se agregaron secciones de instalación de JMeter y Python que faltaban | Documentación incompleta para nuevos colaboradores |
+
+---
+
+### Limitaciones encontradas
+
+**Del modelo de IA (LLM):**
+- Las respuestas simuladas representan el comportamiento *esperado* del modelo, no una ejecución real contra un LLM en producción. La evaluación es válida como matriz de prueba, pero requeriría una API key real para validación end-to-end.
+- Los LLMs no tienen memoria entre sesiones. La consistencia observada en TC-05 se garantiza solo dentro de una misma conversación con el system prompt en contexto.
+- A temperaturas más altas (> 0.7), el modelo podría responder de forma inconsistente ante las mismas preguntas. Solo se evaluó con temperatura 0.3.
+- El modelo puede alucinar canales de soporte, URLs o políticas no definidas en el system prompt si el usuario realiza preguntas muy específicas fuera del contexto entrenado.
+
+**De las pruebas de performance:**
+- Las pruebas se ejecutaron contra `jsonplaceholder.typicode.com`, una API de terceros sin SLA garantizado. Los tiempos de respuesta dependen de la latencia de red local y la disponibilidad del servicio externo.
+- El soak-test (8 min de carga sostenida) y el spike-test (200 VUs) no fueron ejecutados en esta sesión por limitaciones de tiempo. Los scripts existen pero sus resultados no están en `evidences/`.
+- JMeter produjo un archivo `jmeter.log` en la raíz del proyecto (fuera de `evidences/`) que requirió agregar la entrada al `.gitignore`.
+
+**De la herramienta de IA (Kiro):**
+- El primer plan JMX generado contenía errores de XML (carácter `<` en atributo y variable sin resolver), lo que requirió dos iteraciones de corrección antes de una ejecución exitosa.
+- Kiro no tiene acceso a ejecutar código Python con dependencias externas no instaladas, por lo que la simulación via HTTP a OpenRouter requirió adaptación al enfoque de respuestas embebidas.
