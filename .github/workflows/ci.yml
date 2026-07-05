@@ -21,11 +21,9 @@ jobs:
       # 2. Instalación de dependencias
       - name: Instalar k6
         run: |
-          sudo gpg --no-default-keyring \
-            --keyring /usr/share/keyrings/k6-archive-keyring.gpg \
-            --keyserver hkp://keyserver.ubuntu.com:80 \
-            --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
-          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" \
+          curl -fsSL https://pkg.k6.io/key.gpg \
+            | sudo gpg --dearmor -o /usr/share/keyrings/k6-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://pkg.k6.io/deb stable main" \
             | sudo tee /etc/apt/sources.list.d/k6.list
           sudo apt-get update && sudo apt-get install -y k6
           k6 version
@@ -57,8 +55,7 @@ jobs:
               m = data.get("metrics", {})
 
               def val(metric, stat):
-                  v = m.get(metric, {}).get("values", {}).get(stat)
-                  return v
+                  return m.get(metric, {}).get("values", {}).get(stat)
 
               rows = [
                   ("http_req_duration avg",   f"{val('http_req_duration','avg'):.2f} ms"),
@@ -75,7 +72,7 @@ jobs:
                   out.write("\n")
               print("Reporte k6 generado")
           except Exception as e:
-              print(f"Advertencia: no se pudo parsear el summary — {e}", file=sys.stderr)
+              print(f"Advertencia: {e}", file=sys.stderr)
           PYEOF
 
       # 5. Publicación de artefactos
@@ -101,7 +98,7 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. Instalación de dependencias
-      - name: Verificar Python (sin dependencias externas)
+      - name: Verificar Python
         run: |
           python3 --version
           echo "Dependencias: stdlib únicamente (json, os, datetime)"
@@ -143,7 +140,7 @@ jobs:
                       out.write(f"| {tc['id']} | {tc['categoria']} | {ev.get('score')} | {ev.get('status')} |\n")
               print("Reporte IA generado")
           except Exception as e:
-              print(f"Advertencia: no se pudo parsear resultados IA — {e}", file=sys.stderr)
+              print(f"Advertencia: {e}", file=sys.stderr)
           PYEOF
 
       # 5. Publicación de artefactos
