@@ -1,0 +1,211 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1783128738897,486,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,28656,209,2,4,https://jsonplaceholder.typicode.com/posts,480,0,372
+1783128739331,283,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,6782,209,2,4,https://jsonplaceholder.typicode.com/users,282,0,181
+1783128739835,293,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,28656,209,3,6,https://jsonplaceholder.typicode.com/posts,285,0,190
+1783128740390,97,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,1430,211,3,6,https://jsonplaceholder.typicode.com/posts/1,97,0,0
+1783128740339,292,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,6782,209,3,6,https://jsonplaceholder.typicode.com/users,286,0,191
+1783128740835,289,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,28656,209,4,8,https://jsonplaceholder.typicode.com/posts,282,0,186
+1783128741117,110,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,28656,209,4,8,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128741134,101,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,1430,211,4,8,https://jsonplaceholder.typicode.com/posts/1,101,0,0
+1783128741335,290,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,6782,209,4,8,https://jsonplaceholder.typicode.com/users,289,0,192
+1783128741491,176,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,2645,220,4,8,https://jsonplaceholder.typicode.com/posts/1/comments,175,0,0
+1783128741832,312,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,28656,209,5,10,https://jsonplaceholder.typicode.com/posts,304,0,206
+1783128742130,98,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,1430,211,5,10,https://jsonplaceholder.typicode.com/posts/1,98,0,0
+1783128742136,105,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,28656,209,5,10,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128742240,102,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,2645,220,5,10,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128742334,314,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,6782,209,5,10,https://jsonplaceholder.typicode.com/users,314,0,217
+1783128742673,104,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,28656,209,5,10,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128742729,119,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,1349,328,5,11,https://jsonplaceholder.typicode.com/posts,119,0,0
+1783128742829,284,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,28656,209,6,11,https://jsonplaceholder.typicode.com/posts,279,0,182
+1783128743131,110,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,28656,209,5,11,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128743150,95,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,1430,211,6,11,https://jsonplaceholder.typicode.com/posts/1,95,0,0
+1783128743229,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,2645,220,6,11,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128743348,110,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,28656,209,6,11,https://jsonplaceholder.typicode.com/posts,97,0,0
+1783128743336,286,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,6782,209,5,11,https://jsonplaceholder.typicode.com/users,286,0,189
+1783128743782,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,1430,211,7,12,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128743747,167,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,1357,328,5,12,https://jsonplaceholder.typicode.com/posts,167,0,0
+1783128743837,293,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,28656,209,7,12,https://jsonplaceholder.typicode.com/posts,279,0,186
+1783128744119,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,1430,211,7,12,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128744154,107,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,28656,209,5,12,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128744250,98,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,2645,220,7,12,https://jsonplaceholder.typicode.com/posts/1/comments,98,0,0
+1783128744330,105,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,28656,209,7,12,https://jsonplaceholder.typicode.com/posts,91,0,0
+1783128744350,96,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,2645,221,5,12,https://jsonplaceholder.typicode.com/comments?postId=1,96,0,0
+1783128744464,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,1430,211,7,12,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128744746,166,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,1349,328,5,13,https://jsonplaceholder.typicode.com/posts,166,0,0
+1783128744888,100,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,2645,220,8,13,https://jsonplaceholder.typicode.com/posts/1/comments,100,0,0
+1783128744831,289,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,28656,209,8,13,https://jsonplaceholder.typicode.com/posts,280,0,185
+1783128745132,98,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,1430,211,8,13,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128745128,103,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,28656,209,5,13,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128745219,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,2645,220,8,13,https://jsonplaceholder.typicode.com/posts/1/comments,93,0,0
+1783128745354,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,28656,209,8,13,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128745416,93,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,2645,221,5,13,https://jsonplaceholder.typicode.com/comments?postId=1,93,0,0
+1783128745438,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,1430,211,8,13,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128745562,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,2645,220,8,13,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128745766,124,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,1357,328,5,14,https://jsonplaceholder.typicode.com/posts,124,0,0
+1783128745950,96,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,6782,209,5,14,https://jsonplaceholder.typicode.com/users,94,0,0
+1783128745994,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,28656,209,9,14,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128745827,281,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,28656,209,9,14,https://jsonplaceholder.typicode.com/posts,277,0,179
+1783128746123,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,1430,211,9,14,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128746235,120,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,2645,220,9,14,https://jsonplaceholder.typicode.com/posts/1/comments,120,0,0
+1783128746322,107,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,28656,209,9,14,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128746418,96,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,2645,221,5,14,https://jsonplaceholder.typicode.com/comments?postId=1,95,0,0
+1783128746465,91,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,1430,211,9,14,https://jsonplaceholder.typicode.com/posts/1,91,0,0
+1783128746537,93,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,2645,220,9,14,https://jsonplaceholder.typicode.com/posts/1/comments,93,0,0
+1783128746658,105,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,28656,209,9,14,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128746737,163,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,1345,328,5,15,https://jsonplaceholder.typicode.com/posts,163,0,0
+1783128747015,93,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,93,0,0
+1783128746829,289,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,282,0,185
+1783128747100,95,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128747109,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128747221,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128747361,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,97,0,0
+1783128747396,100,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,2645,221,5,15,https://jsonplaceholder.typicode.com/comments?postId=1,99,0,0
+1783128747436,93,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,93,0,0
+1783128747552,111,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,28656,209,5,15,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128747562,101,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,101,0,0
+1783128747637,112,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128747768,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128748019,97,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,95,0,0
+1783128747829,288,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,280,0,186
+1783128748123,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128748195,91,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,91,0,0
+1783128748206,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,93,0,0
+1783128748322,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128748406,102,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,2645,221,5,15,https://jsonplaceholder.typicode.com/comments?postId=1,102,0,0
+1783128748469,93,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,93,0,0
+1783128748533,96,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,96,0,0
+1783128748614,106,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,28656,209,5,15,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128748670,110,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128748755,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128748868,106,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,106,0,0
+1783128749001,98,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,97,0,0
+1783128749123,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128749170,132,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,1349,328,5,15,https://jsonplaceholder.typicode.com/posts,132,0,0
+1783128749223,97,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,97,0,0
+1783128749292,104,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128749302,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128749433,93,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128749566,98,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,98,0,0
+1783128749620,105,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,28656,209,5,15,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128749635,107,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,96,0,0
+1783128749787,90,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,90,0,0
+1783128749856,92,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128749980,107,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,99,0,0
+1783128750014,98,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,98,0,0
+1783128750226,97,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,96,0,0
+1783128750225,125,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,1349,328,5,15,https://jsonplaceholder.typicode.com/posts,124,0,0
+1783128750326,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,96,0,0
+1783128750403,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,95,0,0
+1783128750416,95,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,95,0,0
+1783128750531,92,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128750604,109,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,28656,209,5,15,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128750670,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128750746,98,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,98,0,0
+1783128750813,99,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,2645,221,5,15,https://jsonplaceholder.typicode.com/comments?postId=1,99,0,0
+1783128750883,91,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,91,0,0
+1783128750954,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128751095,100,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,100,0,0
+1783128751230,120,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,1349,328,5,15,https://jsonplaceholder.typicode.com/posts,119,0,0
+1783128751325,104,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128751440,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128751502,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,93,0,0
+1783128751512,92,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,2645,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128751617,108,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,28656,209,5,15,https://jsonplaceholder.typicode.com/posts,96,0,0
+1783128751629,107,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128751779,90,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,90,0,0
+1783128751853,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128751856,95,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,2645,221,5,15,https://jsonplaceholder.typicode.com/comments?postId=1,95,0,0
+1783128751978,108,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128752063,97,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,97,0,0
+1783128752198,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128752222,122,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,1349,328,5,15,https://jsonplaceholder.typicode.com/posts,122,0,0
+1783128752418,102,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,102,0,0
+1783128752435,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128752542,93,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,93,0,0
+1783128752603,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128752609,102,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128752742,95,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,95,0,0
+1783128752854,93,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,2645,221,5,15,https://jsonplaceholder.typicode.com/comments?postId=1,93,0,0
+1783128752873,91,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,91,0,0
+1783128752950,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128753092,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128753164,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128753231,117,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,1345,328,5,15,https://jsonplaceholder.typicode.com/posts,117,0,0
+1783128753299,108,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,99,0,0
+1783128753457,95,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,95,0,0
+1783128753533,96,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,96,0,0
+1783128753642,102,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128753716,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128753714,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128753846,92,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128753849,94,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,2645,221,5,15,https://jsonplaceholder.typicode.com/comments?postId=1,94,0,0
+1783128753966,107,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,98,0,0
+1783128754026,105,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,28656,209,5,15,https://jsonplaceholder.typicode.com/posts,96,0,0
+1783128754057,93,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,93,0,0
+1783128754190,93,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128754265,115,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,105,0,0
+1783128754410,96,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,96,0,0
+1783128754451,95,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,6782,209,5,15,https://jsonplaceholder.typicode.com/users,94,0,0
+1783128754637,104,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,28656,209,10,15,https://jsonplaceholder.typicode.com/posts,101,0,0
+1783128754753,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,1430,211,10,15,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128754813,96,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-1,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,96,0,0
+1783128754815,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,2646,220,10,15,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128754852,92,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,2645,221,5,14,https://jsonplaceholder.typicode.com/comments?postId=1,92,0,0
+1783128754944,108,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,28656,209,9,14,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128755058,111,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,28656,209,5,14,https://jsonplaceholder.typicode.com/posts,99,0,0
+1783128755079,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,1430,211,9,14,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128755156,95,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,2646,220,9,14,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128755288,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,28656,209,9,14,https://jsonplaceholder.typicode.com/posts,94,0,0
+1783128755384,93,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,1430,211,9,14,https://jsonplaceholder.typicode.com/posts/1,93,0,0
+1783128755443,99,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,6782,209,5,14,https://jsonplaceholder.typicode.com/users,95,0,0
+1783128755510,102,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-2,text,true,,2646,220,9,14,https://jsonplaceholder.typicode.com/posts/1/comments,102,0,0
+1783128755638,124,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,1349,328,5,13,https://jsonplaceholder.typicode.com/posts,124,0,0
+1783128755747,91,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,1430,211,8,13,https://jsonplaceholder.typicode.com/posts/1,91,0,0
+1783128755853,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,2646,220,8,13,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128755914,104,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,28656,209,8,13,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128756054,100,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,1430,211,8,13,https://jsonplaceholder.typicode.com/posts/1,100,0,0
+1783128756052,109,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,28656,209,5,13,https://jsonplaceholder.typicode.com/posts,97,0,0
+1783128756174,103,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,2646,220,8,13,https://jsonplaceholder.typicode.com/posts/1/comments,103,0,0
+1783128756254,106,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,28656,209,8,13,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128756398,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,1430,211,8,13,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128756454,94,Paso 1 - GET /users (sesión),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,6782,209,5,13,https://jsonplaceholder.typicode.com/users,94,0,0
+1783128756487,97,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-3,text,true,,2646,220,8,13,https://jsonplaceholder.typicode.com/posts/1/comments,97,0,0
+1783128756674,123,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,1345,328,5,12,https://jsonplaceholder.typicode.com/posts,123,0,0
+1783128756840,96,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,2646,220,7,12,https://jsonplaceholder.typicode.com/posts/1/comments,95,0,0
+1783128756955,107,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,28656,209,7,12,https://jsonplaceholder.typicode.com/posts,95,0,0
+1783128757022,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,1430,211,7,12,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128757048,111,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,28656,209,5,12,https://jsonplaceholder.typicode.com/posts,96,0,0
+1783128757157,93,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,2646,220,7,12,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128757268,95,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-1,text,true,,2645,221,5,12,https://jsonplaceholder.typicode.com/comments?postId=1,95,0,0
+1783128757279,104,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,28656,209,7,11,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128757364,95,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,1430,211,7,11,https://jsonplaceholder.typicode.com/posts/1,95,0,0
+1783128757498,99,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-4,text,true,,2646,220,7,11,https://jsonplaceholder.typicode.com/posts/1/comments,99,0,0
+1783128757667,117,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,1357,328,4,10,https://jsonplaceholder.typicode.com/posts,117,0,0
+1783128757941,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,28656,209,6,10,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128758054,106,Paso 2 - GET /posts (catálogo),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,28656,209,4,10,https://jsonplaceholder.typicode.com/posts,98,0,0
+1783128758069,118,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,1430,211,6,10,https://jsonplaceholder.typicode.com/posts/1,117,0,0
+1783128758119,92,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,2646,220,6,10,https://jsonplaceholder.typicode.com/posts/1/comments,92,0,0
+1783128758254,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,28656,209,6,10,https://jsonplaceholder.typicode.com/posts,92,0,0
+1783128758303,100,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-2,text,true,,2645,221,4,10,https://jsonplaceholder.typicode.com/comments?postId=1,100,0,0
+1783128758387,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,1430,211,6,9,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128758461,99,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-5,text,true,,2646,220,6,9,https://jsonplaceholder.typicode.com/posts/1/comments,99,0,0
+1783128758662,125,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,1349,328,3,8,https://jsonplaceholder.typicode.com/posts,125,0,0
+1783128759050,98,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,1430,211,5,8,https://jsonplaceholder.typicode.com/posts/1,98,0,0
+1783128759193,98,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,2646,220,5,8,https://jsonplaceholder.typicode.com/posts/1/comments,98,0,0
+1783128759212,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,28656,209,5,8,https://jsonplaceholder.typicode.com/posts,101,0,0
+1783128759290,95,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-3,text,true,,2645,221,3,8,https://jsonplaceholder.typicode.com/comments?postId=1,95,0,0
+1783128759363,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,1430,211,5,7,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128759487,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-6,text,true,,2646,220,5,7,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128759665,119,Paso 3 - POST /posts (crear pedido),201,Created,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,1345,328,2,6,https://jsonplaceholder.typicode.com/posts,119,0,0
+1783128760155,97,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,2646,220,4,6,https://jsonplaceholder.typicode.com/posts/1/comments,97,0,0
+1783128760296,96,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-4,text,true,,2645,221,2,6,https://jsonplaceholder.typicode.com/comments?postId=1,96,0,0
+1783128760296,117,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,28656,209,4,5,https://jsonplaceholder.typicode.com/posts,97,0,0
+1783128760321,92,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,1430,211,4,5,https://jsonplaceholder.typicode.com/posts/1,92,0,0
+1783128760461,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-7,text,true,,2646,220,4,5,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128761253,103,GET /posts - Listar todos los posts,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,28656,209,3,4,https://jsonplaceholder.typicode.com/posts,93,0,0
+1783128761290,93,Paso 4 - GET /comments?postId=1 (reseñas),200,OK,Escenario 2 - Flujo Simulado de Compra 2-5,text,true,,2645,221,1,4,https://jsonplaceholder.typicode.com/comments?postId=1,93,0,0
+1783128761416,94,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-8,text,true,,2646,220,3,3,https://jsonplaceholder.typicode.com/posts/1/comments,94,0,0
+1783128761416,94,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,1430,211,3,3,https://jsonplaceholder.typicode.com/posts/1,94,0,0
+1783128762360,91,GET /posts/1 - Obtener post por ID,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,1430,211,2,2,https://jsonplaceholder.typicode.com/posts/1,91,0,0
+1783128762516,96,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-9,text,true,,2646,220,2,2,https://jsonplaceholder.typicode.com/posts/1/comments,96,0,0
+1783128763457,105,GET /posts/1/comments - Comentarios del post,200,OK,Escenario 1 - Consulta de Posts 1-10,text,true,,2646,220,1,1,https://jsonplaceholder.typicode.com/posts/1/comments,105,0,0

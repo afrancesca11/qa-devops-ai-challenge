@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# JMeter logs y temporales
+jmeter.log
+*.log
+
+# Evidencias grandes (opcionales en repo)
+evidences/jmeter-report/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db
