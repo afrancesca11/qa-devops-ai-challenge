@@ -139,3 +139,67 @@ jmeter -n \
   -l evidences/jmeter-results.jtl \
   -e -o evidences/jmeter-report
 ```
+
+---
+
+## Quality Gates definidos
+
+Esta sección documenta los criterios mínimos que debe cumplir un Pull Request para ser mergeado a `main`. Los gates se verifican automáticamente mediante los workflows `.github/workflows/ci.yml` y `.github/workflows/performance.yml`.
+
+### Gate 1 — Todas las pruebas automatizadas deben pasar
+
+**Job:** `k6-load-test` y `ai-tests` en `ci.yml`
+
+El CI ejecuta dos suites de pruebas en cada PR. Ambos jobs deben completar sin error para que el PR sea aprobable:
+
+- El job `k6-load-test` corre `performance/k6/load-test.js` y falla si k6 detecta que algún threshold fue superado (p95 > 500 ms o tasa de fallos > 5%).
+- El job `ai-tests` corre `tests/ai/run_ai_tests.py` y falla si algún caso de la matriz retorna `FAIL`.
+
+### Gate 2 — Tasa de errores HTTP menor al 1%
+
+**Job:** `k6-load-test` — métrica `http_req_failed`
+
+El threshold definido en `load-test.js` es `fallos: rate < 0.05` (5%). Para efectos del quality gate se eleva el criterio de revisión manual a **< 1%**, visible en la tabla del Step Summary del PR bajo la columna "Tasa de errores". Un PR con error rate ≥ 1% debe ser bloqueado aunque k6 no falle técnicamente.
+
+### Gate 3 — Tiempo de respuesta dentro del umbral definido
+
+**Job:** `k6-load-test` — métrica `http_req_duration`
+
+El threshold de k6 es `p(95) < 500 ms`. El Step Summary del PR publica el valor real de p(95), avg y max. Criterios:
+
+| Métrica | Umbral obligatorio | Umbral ideal |
+|---------|-------------------|--------------|
+| p(95) latencia | < 500 ms | < 200 ms |
+| Avg latencia | < 300 ms | < 150 ms |
+| Tasa de errores | < 5% (k6) / < 1% (revisión) | 0% |
+
+### Gate 4 — No deben existir secretos expuestos
+
+**Job:** `validate-structure` en `ci.yml`
+
+El job verifica la presencia de archivos clave del repositorio. Como parte del proceso DevSecOps, el PR no debe incluir archivos con credenciales, tokens ni claves privadas. El `.gitignore` ya excluye `.env`, `*.log` y `__pycache__`. Adicionalmente, el revisor debe confirmar manualmente que no se exponen secretos antes de aprobar.
+
+> En una implementación avanzada este gate se automatizaría con `trufflesecurity/trufflehog-actions-scan` o `gitleaks/gitleaks-action`.
+
+### Gate 5 — El PR debe tener artefactos generados
+
+**Jobs:** `k6-load-test` (paso 5) y `ai-tests` (paso 5) en `ci.yml`
+
+Ambos jobs suben artefactos con `actions/upload-artifact@v4`. Un PR sin artefactos indica que las pruebas no se ejecutaron. Los artefactos requeridos son:
+
+| Artefacto | Job origen | Contenido |
+|-----------|-----------|-----------|
+| `k6-results` | `k6-load-test` | `resultados.json`, `k6-summary.json` |
+| `ai-test-results` | `ai-tests` | `ai-test-results.json` |
+
+### Gate 6 — Estructura mínima del repositorio presente
+
+**Job:** `validate-structure` en `ci.yml`
+
+El job siempre corre y publica en el Step Summary el estado de los archivos obligatorios. Un PR que marque como ausente alguno de estos archivos no debe mergearse:
+
+- `docs/test-plan.md`
+- `docs/ai-analysis.md`
+- `docs/bug-reports.md`
+- `performance/k6/load-test.js`
+- `tests/ai/run_ai_tests.py`
